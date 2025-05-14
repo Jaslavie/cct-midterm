@@ -12,22 +12,17 @@ The Bernoulli(0.5) distribution represents to the prior probability of each item
 <br><br>
 The MCMC sampling shows high convergence (1.0000) using 4 chains, 2000 draws per chain, and 1000 tuning steps. The sampling performance is high with around 320 draws/second and taking 9 seconds in total to complete.
 
-Trial 1 <br>
-                                                             Sampling                          
-  Progress     Draws   Divergences   Step size   Grad evals   Speed        Elapsed   Remaining  
- ────────────────────────────────────────────────────────────────────────────────────────────── 
-  ━━━━━━━━━━   3000    0             0.66        7            321.82       0:00:09   0:00:00    
-                                                              draws/s                           
-  ━━━━━━━━━━   3000    0             0.78        3            323.36       0:00:09   0:00:00    
-                                                              draws/s                           
-  ━━━━━━━━━━   3000    0             0.59        7            320.55       0:00:09   0:00:00    
-                                                              draws/s                           
-  ━━━━━━━━━━   3000    0             0.51        7            319.30       0:00:09   0:00:00    
-                                                              draws/s                           
-                                                                                           
+**Trial 1** <br>                     
+| Chain | Progress | Draws | Divergences | Step size | Grad evals | Speed (draws/s) | Elapsed | Remaining |
+|-------|----------|-------|-------------|-----------|------------|-----------------|---------|-----------|
+| 1 | ✓ | 3000 | 0 | 0.66 | 7 | 321.82 | 0:00:09 | 0:00:00 |
+| 2 | ✓ | 3000 | 0 | 0.78 | 3 | 323.36 | 0:00:09 | 0:00:00 |
+| 3 | ✓ | 3000 | 0 | 0.59 | 7 | 320.55 | 0:00:09 | 0:00:00 |
+| 4 | ✓ | 3000 | 0 | 0.51 | 7 | 319.30 | 0:00:09 | 0:00:00 |
+            
 <br><br>
 
-Trial 2: <br>
+**Trial 2** <br>
 Informant Competence Estimates:
 - Most competent: P6 (0.809)
 - Least competent: P9 (0.604)
@@ -54,10 +49,10 @@ Convergence Diagnostics:
 [![Consensus Answer Estimates](results/consensus_plot.png)](results/consensus_plot.png)
 *Figure 2: Probability of consensus answer being 'Yes' for each item, with disagreements with majority vote highlighted in red*
 
-[![Posterior Distributions of Competence](/Users/jaslavie/cct-midterm/results/d_posterior.png)](/Users/jaslavie/cct-midterm/results/d_posterior.png)
+[![Posterior Distributions of Competence](results/d_posterior.png)](results/d_posterior.png)
 *Figure 3: Posterior probability distributions of competence values for each informant*
 
-[![Posterior Distributions of Consensus Answers](/Users/jaslavie/cct-midterm/results/z_posterior.png)](/Users/jaslavie/cct-midterm/results/z_posterior.png)
+[![Posterior Distributions of Consensus Answers](results/z_posterior.png)](results/z_posterior.png)
 *Figure 4: Posterior probability distributions of consensus answers for each item*
 
 # Introduction to the CCT model
