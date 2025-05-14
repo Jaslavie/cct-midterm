@@ -54,6 +54,12 @@ Convergence Diagnostics:
 [![Consensus Answer Estimates](results/consensus_plot.png)](results/consensus_plot.png)
 *Figure 2: Probability of consensus answer being 'Yes' for each item, with disagreements with majority vote highlighted in red*
 
+[![Posterior Distributions of Competence](/Users/jaslavie/cct-midterm/results/d_posterior.png)](/Users/jaslavie/cct-midterm/results/d_posterior.png)
+*Figure 3: Posterior probability distributions of competence values for each informant*
+
+[![Posterior Distributions of Consensus Answers](/Users/jaslavie/cct-midterm/results/z_posterior.png)](/Users/jaslavie/cct-midterm/results/z_posterior.png)
+*Figure 4: Posterior probability distributions of consensus answers for each item*
+
 # Introduction to the CCT model
 The Cultural Consensus Theory (CCT) is a model represents how knowledge is distributed across a population. We are not given the correct answer in advance and do not know who the experts are. Rather, it's based on the agreed answer that most people give. 
 
