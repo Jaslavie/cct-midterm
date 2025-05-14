@@ -178,6 +178,7 @@ def analyze_model(trace, X, informant_ids=None):
     plt.axvline(x=0.5, color='r', linestyle='--', alpha=0.5)
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
+    plt.savefig("results/competence_plot.png")
     plt.show()
     # consensus
     plt.figure(figsize=(12, 6))
@@ -199,27 +200,24 @@ def analyze_model(trace, X, informant_ids=None):
         plt.legend()
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
+    plt.savefig("results/consensus_plot.png")
     plt.show()
 
     # Plot posterior distributions for key parameters
     az.plot_posterior(trace, var_names=["D"], hdi_prob=0.95)
     plt.title("Posterior Distributions of Informant Competence")
     plt.tight_layout()
+    plt.savefig("results/d_posterior.png")
     plt.show()
 
     az.plot_posterior(trace, var_names=["Z"], hdi_prob=0.95)
     plt.title("Posterior Distributions of Consensus Answers")
     plt.tight_layout()
+    plt.savefig("results/z_posterior.png")
     plt.show()
 
     # save to results folder
-    # os.makedirs("results", exist_ok=True)
-    # get the current working directory
-    cwd = os.getcwd()
-    plt.savefig(f"{cwd}/results/competence_plot.png")
-    plt.savefig(f"{cwd}/results/consensus_plot.png")
-    plt.savefig(f"{cwd}/results/posterior_competence.png")
-    plt.savefig(f"{cwd}/results/posterior_consensus.png")
+    os.makedirs("results", exist_ok=True)
 
     return competence_df, consensus_df
 

@@ -48,6 +48,11 @@ Convergence Diagnostics:
 - Effective sample sizes (ESS) should be large relative to actual samples
 - Min ESS: 2911.0
 
+[![Informant Competence Estimates](results/competence_plot.png)](results/competence_plot.png)
+*Figure 1: Estimated informant competence with 95% credible intervals*
+
+[![Consensus Answer Estimates](results/consensus_plot.png)](results/consensus_plot.png)
+*Figure 2: Probability of consensus answer being 'Yes' for each item, with disagreements with majority vote highlighted in red*
 
 # Introduction to the CCT model
 The Cultural Consensus Theory (CCT) is a model represents how knowledge is distributed across a population. We are not given the correct answer in advance and do not know who the experts are. Rather, it's based on the agreed answer that most people give. 
