@@ -108,7 +108,7 @@ def analyze_model(trace, X, informant_ids=None):
     # ----- estimate informant competence -----
     # extract competence from the trace
     d_samples = trace.posterior["D"].values
-    d_mean = d_samples.mean(axis=0)
+    d_mean = d_samples.mean(axis=(0, 1)) # take the average over both chains and draws
     d_hdi = az.hdi(d_samples.reshape(-1, len(d_mean))) # the most likely range of competence (appears the most)
 
     # create a df with informant ids and their associated competence
@@ -131,7 +131,7 @@ def analyze_model(trace, X, informant_ids=None):
 
     # ----- estimate consensus answers -----
     z_samples = trace.posterior["Z"].values
-    z_mean = z_samples.mean(axis=0)
+    z_mean = z_samples.mean(axis=(0, 1)) # take the average over both chains and draws
     z_consensus = (z_mean > 0.5).astype(int) # finds the value with a probability over 50%
     majority_vote = (X.mean(axis=0) > 0.5).astype(int) # finds the value with a percentage over 50%
     
@@ -216,3 +216,8 @@ if __name__ == "__main__":
     model = build_model(X)
     trace = sample_posterior(model)
     competence_df, consensus_df = analyze_model(trace, X, informant_ids)
+    # save to resulting plots to results folder
+    plt.savefig("results/competence_plot.png")
+    plt.savefig("results/consensus_plot.png")
+    plt.savefig("results/posterior_competence.png")
+    plt.savefig("results/posterior_consensus.png")
