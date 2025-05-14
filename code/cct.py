@@ -144,7 +144,7 @@ def analyze_model(trace, X, informant_ids=None):
         "Majority_Vote": majority_vote,
         "Match": z_consensus == majority_vote
     })
-    consensus_df = consensus_df.sort_values("Consensus", ascending=False)
+    consensus_df = consensus_df.sort_values("P(Z=1)", ascending=False)
     print("\nConsensus Answer Estimates:")
     print(f"- Items where CCT and majority vote agree: {consensus_df['Match'].sum()} of {len(consensus_df)}")
 
@@ -188,7 +188,7 @@ def analyze_model(trace, X, informant_ids=None):
     if len(disagreements) > 0:
         disagreement_indices = [int(item.split()[1])-1 for item in disagreements["Item"]]
         plt.scatter(disagreement_indices, z_mean[disagreement_indices], 
-                   color='red', s=100, zorder=3, label='Disagrees with majority')
+                color='red', s=100, zorder=3, label='Disagrees with majority')
     
     plt.xlabel("Item Number")
     plt.ylabel("P(Consensus Answer = Yes)")
@@ -198,5 +198,16 @@ def analyze_model(trace, X, informant_ids=None):
     if len(disagreements) > 0:
         plt.legend()
     plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.show()
+
+    # Plot posterior distributions for key parameters
+    az.plot_posterior(trace, var_names=["D"], hdi_prob=0.95)
+    plt.title("Posterior Distributions of Informant Competence")
+    plt.tight_layout()
+    plt.show()
+
+    az.plot_posterior(trace, var_names=["Z"], hdi_prob=0.95)
+    plt.title("Posterior Distributions of Consensus Answers")
     plt.tight_layout()
     plt.show()
