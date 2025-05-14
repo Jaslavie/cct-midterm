@@ -10,6 +10,11 @@ The Bernoulli(0.5) distribution represents to the prior probability of each item
 ### Introduction to the CCT model
 The Cultural Consensus Theory (CCT) is a model represents how knowledge is distributed across a population. We are not given the correct answer in advance and do not know who the experts are. Rather, it's based on the agreed answer that most people give. 
 
+$$
+p_{ij} = Z_j \cdot D_i + (1 - Z_j) \cdot (1 - D_i)
+$$
+
+
 - Each person is given a knowledge score before 50% (guessing) to 100% (expert). 
 - Each question is formatted as a binary answer (Yes/No) with a true answer (i.e. the actual answer) that most knowledgeable person would give
 - The likelihood of a correct answer is a function of the person's knowledge score
