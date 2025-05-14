@@ -12,7 +12,7 @@ The Bernoulli(0.5) distribution represents to the prior probability of each item
 <br><br>
 The MCMC sampling shows high convergence (1.0000) using 4 chains, 2000 draws per chain, and 1000 tuning steps. The sampling performance is high with around 320 draws/second and taking 9 seconds in total to complete.
 
-Output 1 <br>
+Trial 1 <br>
                                                              Sampling                          
   Progress     Draws   Divergences   Step size   Grad evals   Speed        Elapsed   Remaining  
  ────────────────────────────────────────────────────────────────────────────────────────────── 
@@ -25,6 +25,29 @@ Output 1 <br>
   ━━━━━━━━━━   3000    0             0.51        7            319.30       0:00:09   0:00:00    
                                                               draws/s                           
                                                                                            
+<br><br>
+
+Trial 2: <br>
+Informant Competence Estimates:
+- Most competent: P6 (0.809)
+- Least competent: P9 (0.604)
+- Average competence: 0.682
+
+Consensus Answer Estimates:
+- Items where CCT and majority vote agree: 15 of 20
+Items where CCT and majority vote disagree:
+  * Item 8: CCT says Yes (p=0.88), Majority says No
+  * Item 10: CCT says Yes (p=0.87), Majority says No
+  * Item 6: CCT says Yes (p=0.83), Majority says No
+  * Item 14: CCT says Yes (p=0.72), Majority says No
+  * Item 2: CCT says Yes (p=0.60), Majority says No
+
+Convergence Diagnostics:
+- R-hat values should be close to 1.0 (< 1.05 is good)
+- Min R-hat: 1.0000, Max R-hat: 1.0000
+- Effective sample sizes (ESS) should be large relative to actual samples
+- Min ESS: 2911.0
+
 
 # Introduction to the CCT model
 The Cultural Consensus Theory (CCT) is a model represents how knowledge is distributed across a population. We are not given the correct answer in advance and do not know who the experts are. Rather, it's based on the agreed answer that most people give. 

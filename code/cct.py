@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import pymc as pm
 import arviz as az
+import os
 import matplotlib.pyplot as plt
 # N = number of informants
 # M = number of items (questions)
@@ -211,13 +212,19 @@ def analyze_model(trace, X, informant_ids=None):
     plt.tight_layout()
     plt.show()
 
+    # save to results folder
+    # os.makedirs("results", exist_ok=True)
+    # get the current working directory
+    cwd = os.getcwd()
+    plt.savefig(f"{cwd}/results/competence_plot.png")
+    plt.savefig(f"{cwd}/results/consensus_plot.png")
+    plt.savefig(f"{cwd}/results/posterior_competence.png")
+    plt.savefig(f"{cwd}/results/posterior_consensus.png")
+
+    return competence_df, consensus_df
+
 if __name__ == "__main__":
     X, informant_ids = load_data()
     model = build_model(X)
     trace = sample_posterior(model)
     competence_df, consensus_df = analyze_model(trace, X, informant_ids)
-    # save to resulting plots to results folder
-    plt.savefig("results/competence_plot.png")
-    plt.savefig("results/consensus_plot.png")
-    plt.savefig("results/posterior_competence.png")
-    plt.savefig("results/posterior_consensus.png")
