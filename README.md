@@ -1,8 +1,11 @@
 ### Table of contents
 - [Report](#report)
+- [Selection of the prior distributions](#selection-of-the-prior-distributions)
 - [Introduction to the CCT model](#introduction-to-the-cct-model)
+- [Results](#results)
 
-### Report
+# Report
+### Selection of the prior distributions
 I chose the Beta distribution (scaled to [0.5, 1]) to represent the prior knowledge of the informants. This better aligns with the CCT assumptions that cultural knowledge is not distributed evenly across the population but instead that most people have moderate competence levels. This offers us more flexibility to encode varying degrees of knowledge. 
 <br>
 The Bernoulli(0.5) distribution represents to the prior probability of each item's consensus answer. This represents the uncertainty of the answer before data is observed. This allows the model to learn new data.

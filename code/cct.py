@@ -129,3 +129,22 @@ def analyze_model(trace, X, informant_ids=None):
     print(f"- Most competent: {competence_df.iloc[0]['Informant']} ({competence_df.iloc[0]['Competence']:.3f})")
     print(f"- Least competent: {competence_df.iloc[-1]['Informant']} ({competence_df.iloc[-1]['Competence']:.3f})")
     print(f"- Average competence: {competence_df['Competence'].mean():.3f}")
+
+    # ----- estimate consensus answers -----
+    z_samples = trace.posterior["Z"].values
+    z_mean = z_samples.mean(axis=0)
+    z_consensus = (z_mean > 0.5).astype(int) # finds the value with a probability over 50%
+    majority_vote = (X.mean(axis=0) > 0.5).astype(int) # finds the value with a percentage over 50%
+    
+    # Create DataFrame with consensus estimates
+    consensus_df = pd.DataFrame({
+        "Item": [f"Item {i+1}" for i in range(len(z_mean))],
+        "P(Z=1)": z_mean,
+        "CCT_Consensus": z_consensus,
+        "Majority_Vote": majority_vote,
+        "Match": z_consensus == majority_vote
+    })
+    consensus_df = consensus_df.sort_values("Consensus", ascending=False)
+    print("\nConsensus Answer Estimates:")
+    print(f"- Items where CCT and majority vote agree: {consensus_df['Match'].sum()} of {len(consensus_df)}")
+
