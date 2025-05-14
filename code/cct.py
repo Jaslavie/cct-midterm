@@ -60,4 +60,24 @@ def build_model(X):
         X_obs = pm.Bernoulli('X_obs', p=p, observed=X)
 
     return model
-        
+
+def sample_posterior(model, draws=2000, chains=4, tune=1000):
+    """
+    Performs Bayesian inference on the CCT model using Markov Chain Monte Carlo (MCMC) sampling
+    MCMC samples from the posterior distribution of the model parameters (i.e. samples collected after the model has run and observed data)
+    The sampler explores different possible values for unkown parameters by taking small steps toward the answer using the data
+    Chaining allows us to check multiple potential answers and determine the most likely answer
+    - 2000 draws represents the number of posterior samples drawn per chain
+    - 4 chains represents the number of parallel MCMC chains
+    - 1000 tune represents the number of samples discarded before sampling. 
+    Returns: a trace of PyMC inference data containing posterior samples
+    """
+    with model:
+        trace = pm.sample(
+            draws=draws,
+            chains=chains,
+            tune=tune,
+            return_inferencedata=True # tells the sampler to return an ArviZ InferenceData object
+        )
+
+    return trace
