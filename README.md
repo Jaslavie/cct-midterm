@@ -10,7 +10,7 @@ I chose the Beta distribution (scaled to [0.5, 1]) to represent the prior knowle
 <br>
 The Bernoulli(0.5) distribution represents to the prior probability of each item's consensus answer. This represents the uncertainty of the answer before data is observed. This allows the model to learn new data.
 
-### Introduction to the CCT model
+# Introduction to the CCT model
 The Cultural Consensus Theory (CCT) is a model represents how knowledge is distributed across a population. We are not given the correct answer in advance and do not know who the experts are. Rather, it's based on the agreed answer that most people give. 
 
 $$
