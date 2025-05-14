@@ -10,7 +10,21 @@ I chose the Beta distribution (scaled to [0.5, 1]) to represent the prior knowle
 <br><br>
 The Bernoulli(0.5) distribution represents to the prior probability of each item's consensus answer. This represents the uncertainty of the answer before data is observed. This allows the model to learn new data.
 <br><br>
-The MCMC sampling
+The MCMC sampling shows high convergence (1.0000) using 4 chains, 2000 draws per chain, and 1000 tuning steps. The sampling performance is high with around 320 draws/second and taking 9 seconds in total to complete.
+
+Output 1 <br>
+                                                             Sampling                          
+  Progress     Draws   Divergences   Step size   Grad evals   Speed        Elapsed   Remaining  
+ ────────────────────────────────────────────────────────────────────────────────────────────── 
+  ━━━━━━━━━━   3000    0             0.66        7            321.82       0:00:09   0:00:00    
+                                                              draws/s                           
+  ━━━━━━━━━━   3000    0             0.78        3            323.36       0:00:09   0:00:00    
+                                                              draws/s                           
+  ━━━━━━━━━━   3000    0             0.59        7            320.55       0:00:09   0:00:00    
+                                                              draws/s                           
+  ━━━━━━━━━━   3000    0             0.51        7            319.30       0:00:09   0:00:00    
+                                                              draws/s                           
+                                                                                           
 
 # Introduction to the CCT model
 The Cultural Consensus Theory (CCT) is a model represents how knowledge is distributed across a population. We are not given the correct answer in advance and do not know who the experts are. Rather, it's based on the agreed answer that most people give. 
