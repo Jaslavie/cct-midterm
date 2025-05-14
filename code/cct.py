@@ -3,7 +3,6 @@ import pandas as pd
 import pymc as pm
 import arviz as az
 import matplotlib.pyplot as plt
-import seaborn as sns
 # N = number of informants
 # M = number of items (questions)
 # Xij = informant i's response to item j (0 or 1)
@@ -18,8 +17,8 @@ def load_data(filepath="data/plant_knowledge.csv"):
     Drop the ID column because we are only interested in the data
     """
     df = pd.read_csv(filepath)
-    informants_ids = df['Informant ID'].unique() # extract unique observations
-    X = df.drop(columns=['Informant ID']).values # drop ID column and convert everything to a numpy array
+    informants_ids = df['Informant'].unique() # extract unique observations
+    X = df.drop(columns=['Informant']).values # drop ID column and convert everything to a numpy array
     
     return X, informants_ids
 
@@ -211,3 +210,9 @@ def analyze_model(trace, X, informant_ids=None):
     plt.title("Posterior Distributions of Consensus Answers")
     plt.tight_layout()
     plt.show()
+
+if __name__ == "__main__":
+    X, informant_ids = load_data()
+    model = build_model(X)
+    trace = sample_posterior(model)
+    competence_df, consensus_df = analyze_model(trace, X, informant_ids)
